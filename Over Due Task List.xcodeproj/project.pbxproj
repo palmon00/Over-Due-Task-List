@@ -14,13 +14,17 @@
 		1E9F05AB18D7F3BC000D564C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05AA18D7F3BC000D564C /* main.m */; };
 		1E9F05AF18D7F3BC000D564C /* CCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05AE18D7F3BC000D564C /* CCAppDelegate.m */; };
 		1E9F05B218D7F3BC000D564C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E9F05B018D7F3BC000D564C /* Main.storyboard */; };
-		1E9F05B518D7F3BC000D564C /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05B418D7F3BC000D564C /* CCViewController.m */; };
 		1E9F05B718D7F3BC000D564C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E9F05B618D7F3BC000D564C /* Images.xcassets */; };
 		1E9F05BE18D7F3BC000D564C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9F05BD18D7F3BC000D564C /* XCTest.framework */; };
 		1E9F05BF18D7F3BC000D564C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9F059E18D7F3BC000D564C /* Foundation.framework */; };
 		1E9F05C018D7F3BC000D564C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9F05A218D7F3BC000D564C /* UIKit.framework */; };
 		1E9F05C818D7F3BC000D564C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E9F05C618D7F3BC000D564C /* InfoPlist.strings */; };
 		1E9F05CA18D7F3BC000D564C /* Over_Due_Task_ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05C918D7F3BC000D564C /* Over_Due_Task_ListTests.m */; };
+		1E9F05D818D7F6DF000D564C /* CCTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05D718D7F6DF000D564C /* CCTasksViewController.m */; };
+		1E9F05DB18D7F6FB000D564C /* CCAddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05DA18D7F6FB000D564C /* CCAddTaskViewController.m */; };
+		1E9F05DE18D7F774000D564C /* CCTaskDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05DD18D7F774000D564C /* CCTaskDetailsViewController.m */; };
+		1E9F05E118D7F794000D564C /* CCEditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05E018D7F794000D564C /* CCEditTaskViewController.m */; };
+		1E9F05E418D7FDAE000D564C /* CCTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F05E318D7FDAE000D564C /* CCTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +49,22 @@
 		1E9F05AD18D7F3BC000D564C /* CCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAppDelegate.h; sourceTree = "<group>"; };
 		1E9F05AE18D7F3BC000D564C /* CCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAppDelegate.m; sourceTree = "<group>"; };
 		1E9F05B118D7F3BC000D564C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1E9F05B318D7F3BC000D564C /* CCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCViewController.h; sourceTree = "<group>"; };
-		1E9F05B418D7F3BC000D564C /* CCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
 		1E9F05B618D7F3BC000D564C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1E9F05BC18D7F3BC000D564C /* Over Due Task ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Over Due Task ListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9F05BD18D7F3BC000D564C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1E9F05C518D7F3BC000D564C /* Over Due Task ListTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Over Due Task ListTests-Info.plist"; sourceTree = "<group>"; };
 		1E9F05C718D7F3BC000D564C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E9F05C918D7F3BC000D564C /* Over_Due_Task_ListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Over_Due_Task_ListTests.m; sourceTree = "<group>"; };
+		1E9F05D618D7F6DF000D564C /* CCTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCTasksViewController.h; path = ../CCTasksViewController.h; sourceTree = "<group>"; };
+		1E9F05D718D7F6DF000D564C /* CCTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCTasksViewController.m; path = ../CCTasksViewController.m; sourceTree = "<group>"; };
+		1E9F05D918D7F6FB000D564C /* CCAddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAddTaskViewController.h; sourceTree = "<group>"; };
+		1E9F05DA18D7F6FB000D564C /* CCAddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAddTaskViewController.m; sourceTree = "<group>"; };
+		1E9F05DC18D7F774000D564C /* CCTaskDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTaskDetailsViewController.h; sourceTree = "<group>"; };
+		1E9F05DD18D7F774000D564C /* CCTaskDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTaskDetailsViewController.m; sourceTree = "<group>"; };
+		1E9F05DF18D7F794000D564C /* CCEditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditTaskViewController.h; sourceTree = "<group>"; };
+		1E9F05E018D7F794000D564C /* CCEditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEditTaskViewController.m; sourceTree = "<group>"; };
+		1E9F05E218D7FDAE000D564C /* CCTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTask.h; sourceTree = "<group>"; };
+		1E9F05E318D7FDAE000D564C /* CCTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +124,17 @@
 		1E9F05A418D7F3BC000D564C /* Over Due Task List */ = {
 			isa = PBXGroup;
 			children = (
-				1E9F05AD18D7F3BC000D564C /* CCAppDelegate.h */,
-				1E9F05AE18D7F3BC000D564C /* CCAppDelegate.m */,
 				1E9F05B018D7F3BC000D564C /* Main.storyboard */,
-				1E9F05B318D7F3BC000D564C /* CCViewController.h */,
-				1E9F05B418D7F3BC000D564C /* CCViewController.m */,
+				1E9F05D618D7F6DF000D564C /* CCTasksViewController.h */,
+				1E9F05D718D7F6DF000D564C /* CCTasksViewController.m */,
+				1E9F05D918D7F6FB000D564C /* CCAddTaskViewController.h */,
+				1E9F05DA18D7F6FB000D564C /* CCAddTaskViewController.m */,
+				1E9F05DC18D7F774000D564C /* CCTaskDetailsViewController.h */,
+				1E9F05DD18D7F774000D564C /* CCTaskDetailsViewController.m */,
+				1E9F05DF18D7F794000D564C /* CCEditTaskViewController.h */,
+				1E9F05E018D7F794000D564C /* CCEditTaskViewController.m */,
 				1E9F05B618D7F3BC000D564C /* Images.xcassets */,
+				1E9F05E518D7FDB6000D564C /* Model */,
 				1E9F05A518D7F3BC000D564C /* Supporting Files */,
 			);
 			path = "Over Due Task List";
@@ -126,6 +143,8 @@
 		1E9F05A518D7F3BC000D564C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E9F05AD18D7F3BC000D564C /* CCAppDelegate.h */,
+				1E9F05AE18D7F3BC000D564C /* CCAppDelegate.m */,
 				1E9F05A618D7F3BC000D564C /* Over Due Task List-Info.plist */,
 				1E9F05A718D7F3BC000D564C /* InfoPlist.strings */,
 				1E9F05AA18D7F3BC000D564C /* main.m */,
@@ -150,6 +169,15 @@
 				1E9F05C618D7F3BC000D564C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1E9F05E518D7FDB6000D564C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E9F05E218D7FDAE000D564C /* CCTask.h */,
+				1E9F05E318D7FDAE000D564C /* CCTask.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E9F05AF18D7F3BC000D564C /* CCAppDelegate.m in Sources */,
+				1E9F05DB18D7F6FB000D564C /* CCAddTaskViewController.m in Sources */,
+				1E9F05DE18D7F774000D564C /* CCTaskDetailsViewController.m in Sources */,
+				1E9F05D818D7F6DF000D564C /* CCTasksViewController.m in Sources */,
+				1E9F05E418D7FDAE000D564C /* CCTask.m in Sources */,
 				1E9F05AB18D7F3BC000D564C /* main.m in Sources */,
-				1E9F05B518D7F3BC000D564C /* CCViewController.m in Sources */,
+				1E9F05E118D7F794000D564C /* CCEditTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
