@@ -53,28 +53,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    // segue to add task
     if ([sender isKindOfClass:[UIBarButtonItem class]] && [segue.destinationViewController isKindOfClass:[CCAddTaskViewController class]]) {
         // set delegate to self
         CCAddTaskViewController *addTaskVC = segue.destinationViewController;
         addTaskVC.delegate = self;
     }
     
+    // segue to task details
     if ([sender isKindOfClass:[NSIndexPath class]] && [segue.destinationViewController isKindOfClass:[CCTaskDetailsViewController class]])
     {
-        // pass task to Task Details VC
+        // pass task to Task Details VC and set self as delegate
         NSIndexPath *path = sender;
         CCTaskDetailsViewController *taskDetailsVC = segue.destinationViewController;
         taskDetailsVC.task = self.taskObjects[path.row];
@@ -84,7 +75,8 @@
 
 - (IBAction)reorderButtonPressed:(UIBarButtonItem *)sender {
     // toggle editing mode
-    if (self.tableView.editing) [self.tableView setEditing:NO animated:YES]; else [self.tableView setEditing:YES animated:YES];
+    if (self.tableView.editing) [self.tableView setEditing:NO animated:YES];
+    else [self.tableView setEditing:YES animated:YES];
 }
 
 - (IBAction)addTaskButtonPressed:(UIBarButtonItem *)sender {
@@ -120,14 +112,10 @@
     [formatter setDateFormat:@"yyyy MM dd"];
     cell.detailTextLabel.text = [formatter stringFromDate:task.date];
     
-    // color cell yellow if date is greater than today, red otherwise
-    if ([self isDateGreaterThanDate:task.date and:[NSDate date]]) cell.backgroundColor = [UIColor yellowColor];
+    // completed tasks are green, pending are yellow, overdue are red
+    if (task.completion) cell.backgroundColor = [UIColor greenColor];
+    else if ([self isDateGreaterThanDate:task.date and:[NSDate date]]) cell.backgroundColor = [UIColor yellowColor];
     else cell.backgroundColor = [UIColor redColor];
-    
-    // completed tasks are green
-    if (task.completion) {
-        cell.backgroundColor = [UIColor greenColor];
-    }
     
     return cell;
 }
@@ -143,14 +131,16 @@
     
     // can now delete cells
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+    
+    // update tableView
     [tableView reloadData];
 }
 
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    // move objects in taskObjects
+    // move object in taskObjects
     CCTask *task = self.taskObjects[sourceIndexPath.row];
     [self.taskObjects removeObjectAtIndex:sourceIndexPath.row];
     [self.taskObjects insertObject:task atIndex:destinationIndexPath.row];
@@ -185,7 +175,7 @@
     // save taskObjects
     [self saveTaskObjects];
     
-    [self.tableView reloadData];
+    [tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -248,22 +238,6 @@
     NSTimeInterval toTimeInterval = [toDate timeIntervalSinceReferenceDate];
     return (timeInterval > toTimeInterval);
 }
-
-//- (void)updateCompletionOfTask:(CCTask *)task forIndexPath:(NSIndexPath *)indexPath
-//{
-//    // remove task from savedTasks
-//    NSMutableArray *savedTasks = [[[NSUserDefaults standardUserDefaults] arrayForKey:TASKS] mutableCopy];
-//    int taskIndex = [savedTasks indexOfObject:[self taskObjectAsAPropertyList:task]];
-//    [savedTasks removeObject:[self taskObjectAsAPropertyList:task]];
-//    
-//    // update task completion
-//    task.completion = !task.completion;
-//    
-//    // resave task
-//    [savedTasks insertObject:[self taskObjectAsAPropertyList:task] atIndex:taskIndex];
-//    [[NSUserDefaults standardUserDefaults] setObject:savedTasks forKey:TASKS];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
-//}
 
 - (void)saveTaskObjects
 {

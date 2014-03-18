@@ -47,6 +47,7 @@
     // Pass the selected object to the new view controller.
     if ([sender isKindOfClass:[UIBarButtonItem class]] && [segue.destinationViewController isKindOfClass:[CCEditTaskViewController class]])
     {
+        // pass task to edit task VC
         CCEditTaskViewController *editTaskVC = segue.destinationViewController;
         editTaskVC.task = self.task;
         editTaskVC.delegate = self;
@@ -65,7 +66,7 @@
     [self updateLabels];
     
     // pop VC
-    [[self navigationController] popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 
     // notify tasks VC
     [self.delegate didSave];

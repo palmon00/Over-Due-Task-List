@@ -58,9 +58,10 @@
     [self.delegate didAddTask:[self returnTask]];
 }
 
-#pragma mark - UITextFieldDelegate, UITextViewDelegate
+#pragma mark - UITextViewDelegate
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    // close keyboard on return
     if ([text isEqualToString:@"\n"]) {
         [self.detailsTextView resignFirstResponder];
         return NO;
@@ -68,12 +69,11 @@
     return YES;
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+#pragma mark - UITextFieldDelegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if ([string isEqualToString:@"\n"]) {
-        [self.nameTextField resignFirstResponder];
-        return NO;
-    }
+    [self.nameTextField resignFirstResponder];
     return YES;
 }
 

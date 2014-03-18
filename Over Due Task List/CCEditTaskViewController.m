@@ -55,7 +55,8 @@
 }
 */
 
-- (IBAction)saveButtonPressed:(UIBarButtonItem *)sender {
+- (IBAction)saveButtonPressed:(UIBarButtonItem *)sender
+{
     // save data in fields to task
     self.task.title = self.nameTextField.text;
     self.task.details = self.detailsTextView.text;
@@ -63,9 +64,10 @@
     [self.delegate didSave];
 }
 
-#pragma mark - UITextFieldDelegate, UITextViewDelegate
+#pragma mark - UITextViewDelegate
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    // close keyboard on return
     if ([text isEqualToString:@"\n"]) {
         [self.detailsTextView resignFirstResponder];
         return NO;
@@ -73,12 +75,11 @@
     return YES;
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+#pragma mark - UITextFieldDelegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if ([string isEqualToString:@"\n"]) {
-        [self.nameTextField resignFirstResponder];
-        return NO;
-    }
+    [self.nameTextField resignFirstResponder];
     return YES;
 }
 
