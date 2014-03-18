@@ -13,6 +13,7 @@
 @interface CCTasksViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CCAddTaskViewControllerDelegate, CCTaskDetailsViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *taskObjects;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)reorderButtonPressed:(UIBarButtonItem *)sender;

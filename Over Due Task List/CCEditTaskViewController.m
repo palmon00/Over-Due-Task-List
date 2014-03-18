@@ -56,7 +56,6 @@
 */
 
 - (IBAction)saveButtonPressed:(UIBarButtonItem *)sender {
-    NSLog(@"saveButtonPressed");
     // save data in fields to task
     self.task.title = self.nameTextField.text;
     self.task.details = self.detailsTextView.text;

@@ -61,13 +61,14 @@
 
 -(void)didSave
 {
-    NSLog(@"didSave CCEditTaskVC");
+    // update labels
     [self updateLabels];
-    NSLog(@"Pop Nav");
+    
+    // pop VC
     [[self navigationController] popViewControllerAnimated:YES];
-    NSLog(@"Nav Popped");
+
+    // notify tasks VC
     [self.delegate didSave];
-    NSLog(@"Delegate called");
 }
 
 #pragma mark - Helper Methods

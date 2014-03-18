@@ -12,9 +12,7 @@
 
 -(instancetype)init
 {
-    self = [super init];
-    
-    if (self) self = [self initWithData:@{}];
+    self = [self initWithData:@{}];
     return self;
 }
 

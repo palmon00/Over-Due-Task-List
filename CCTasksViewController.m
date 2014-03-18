@@ -95,30 +95,36 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // one section
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // one row per task
     return [self.taskObjects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // dequeue a cell
     static NSString *cellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    // label is task title
     CCTask *task = self.taskObjects[indexPath.row];
     cell.textLabel.text = task.title;
     
+    // label is date due
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy MM dd"];
     cell.detailTextLabel.text = [formatter stringFromDate:task.date];
     
-    // color cell red if date is greater than today, yellow otherwise
-    if ([self isDateGreaterThanDate:task.date and:[NSDate date]]) cell.backgroundColor = [UIColor redColor];
-    else cell.backgroundColor = [UIColor yellowColor];
+    // color cell yellow if date is greater than today, red otherwise
+    if ([self isDateGreaterThanDate:task.date and:[NSDate date]]) cell.backgroundColor = [UIColor yellowColor];
+    else cell.backgroundColor = [UIColor redColor];
     
+    // completed tasks are green
     if (task.completion) {
         cell.backgroundColor = [UIColor greenColor];
     }
@@ -202,16 +208,21 @@
     // save to NSUserDefaults
     [self saveTaskObjects];
     
+    // dismiss add VC
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // update table view
     [self.tableView reloadData];
 }
 
 #pragma mark - CCTaskDetailsViewController
 
 -(void)didSave
-{
-    NSLog(@"didSave CCTasksVC");
+{    
+    // save to NSUserDefaults
     [self saveTaskObjects];
+    
+    // update table view
     [self.tableView reloadData];
 }
 
@@ -233,8 +244,8 @@
 
 - (BOOL)isDateGreaterThanDate:(NSDate *)date and:(NSDate *)toDate
 {
-    int timeInterval = [date timeIntervalSinceReferenceDate];
-    int toTimeInterval = [toDate timeIntervalSinceReferenceDate];
+    NSTimeInterval timeInterval = [date timeIntervalSinceReferenceDate];
+    NSTimeInterval toTimeInterval = [toDate timeIntervalSinceReferenceDate];
     return (timeInterval > toTimeInterval);
 }
 
